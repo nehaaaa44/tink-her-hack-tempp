@@ -1,0 +1,15 @@
+{
+    "name": "wasteful-expense-analyzer",
+    "version": "1.0.0",
+    "description": "Analyzes bank statements for wasteful expenses based on modular rules.",
+    "main": "server3.js",
+    "scripts": {
+        "start": "node server3.js",
+        "dev": "node server3.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.6",
+        "express": "^5.2.1",
+        "multer": "^1.4.5-lts.1"
+    }
+}

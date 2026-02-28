@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vampire Drain - Waste Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles3.css">
+</head>
+
+<body>
+    <div class="bg-overlay"></div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">🧛</div>
+            <h1>Wasteful Expense Analyzer</h1>
+            <p>Upload your statement to find the vampires feeding on your funds.</p>
+        </header>
+
+        <main>
+            <div class="method-selector">
+                <button id="mode-upload" class="mode-btn active">Manual Upload</button>
+                <button id="mode-api" class="mode-btn">Bank Plus API Connect</button>
+            </div>
+
+            <section class="upload-section" id="upload-section">
+                <!-- File Mode -->
+                <div class="analysis-card" id="file-card">
+                    <input type="file" id="file-input" accept=".txt" hidden>
+                    <label for="file-input" class="drop-zone" id="drop-zone">
+                        <span class="icon">📜</span>
+                        <span class="text">Click or Drop Statement (.txt)</span>
+                        <span class="filename" id="filename"></span>
+                    </label>
+                    <button id="analyze-btn" class="btn btn-primary" disabled>Start Analysis</button>
+                </div>
+
+                <!-- API Mode -->
+                <div class="analysis-card hidden" id="api-card">
+                    <div class="api-form">
+                        <div class="form-group">
+                            <label for="customer-select">Select Customer</label>
+                            <select id="customer-select">
+                                <option value="" disabled selected>Select Customer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="month-select">Select Month</label>
+                            <select id="month-select">
+                                <option value="" disabled selected>Select Month</option>
+                            </select>
+                        </div>
+                        <button id="fetch-analyze-btn" class="btn btn-primary">Fetch & Analyze</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="loading-section hidden" id="loading-section">
+                <div class="loader"></div>
+                <p>Hunting for wasteful patterns...</p>
+            </section>
+
+            <section class="results-section hidden" id="results-section">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <span class="label">Total Checked</span>
+                        <span class="value" id="total-checked">0</span>
+                    </div>
+                    <div class="summary-card high-severity">
+                        <span class="label">Wasteful Found</span>
+                        <span class="value" id="waste-count">0</span>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Transaction Detail</th>
+                                <th>Rule Highlight</th>
+                                <th>Reasoning</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body">
+                            <!-- Populated by script3.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="actions">
+                    <button id="reset-btn" class="btn btn-ghost">Reset Analyzer</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script3.js"></script>
+</body>
+
+</html>
