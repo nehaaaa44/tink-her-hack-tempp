@@ -6,50 +6,62 @@
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: 4knot
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Parvathi S - College of Engineering Trivandrum
+- Member 2: Neha Susan Koshy - College of Engineering Trivandrum
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+An AI-Powered Waste Expense Analyser that identifies "financial leaks" in bank statements. Using the Gemini 3 Flash LLM, it semantically audits transactions to find forgotten subscriptions, impulsive dining, and hidden fees, transforming raw data into a prioritized savings roadmap.
 
 ### The Problem statement
-[What problem are you solving?]
+Consumers lose significant wealth to "Micro-Transaction Blindness"—small, recurring costs that are easy to ignore but expensive over time.
+
+Subscription Creep: Forgotten digital services (Netflix, iCloud) draining monthly balances.
+
+Convenience Bias: High-frequency, low-cost spending on food delivery (Swiggy/Zomato) that is rarely tracked as a total sum.
+
+Static Tooling: Traditional apps use rigid rules that fail to recognize new brands or complex transaction descriptions
 
 ### The Solution
-[How are you solving it?]
+An automated, intelligent auditing pipeline that provides:
 
+Semantic Auditing: Uses Gemini AI to understand the context of spending (e.g., recognizing "Starbucks" as luxury convenience) rather than just matching keywords.
+
+Vampire Detection: Automatically flags recurring "vampire" subscriptions and calculates 6-month savings projections.
+
+Actionable Insights: Categorizes waste into four high-impact buckets (Subscriptions, Convenience, Shopping, Fees) with AI-generated reasoning for every flag.
+
+Unified Dashboard: A responsive web interface that highlights wasteful rows in real-time for immediate user intervention.
 ---
 
 ## Technical Details
 
-### Technologies/Components Used
-
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+Languages used: JavaScript (Node.js), HTML5, CSS3.
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+Frameworks used: Express.js (Backend server).
 
----
+Libraries used: @google/generative-ai (Gemini SDK), multer (File handling), cors (Cross-origin resource sharing).
+
+Tools used: VS Code, Git, Google AI Studio (API Management), Postman (API Testing).
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+Feature 1: Semantic AI Auditing Uses the Gemini 3 Flash engine to understand transaction intent (e.g., identifying "Starbucks" as luxury convenience) rather than relying on outdated, rigid keyword matching.
+
+Feature 2: Vampire Subscription Detection Automatically flags recurring digital services (Netflix, Spotify, iCloud) and identifies them as "Vampire" expenses that cause long-term financial leakage.
+
+Feature 3: 6-Month Savings Projection Calculates the cumulative cost of detected waste over a half-year period, providing a tangible "reward" motivation for users to cancel unnecessary services.
+
+Feature 4: Multi-Source Analysis Supports both manual .txt file uploads and direct API integration (via a Python-simulated banking backend) to pull and analyze statements in real-time.
+
+Feature 5: High-Impact Categorization Groups all wasteful spending into four actionable buckets—Subscriptions, Convenience Dining, Impulse Shopping, and Miscellaneous Fees—complete with AI-generated reasoning.
 
 ---
 
