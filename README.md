@@ -1,4 +1,4 @@
-<p align="center">
+<img width="1477" height="828" alt="ss2" src="https://github.com/user-attachments/assets/bd8cab01-2240-487c-8935-eb9dc68e866c" /><p align="center">
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
@@ -97,6 +97,9 @@ Open your browser and go to: http://localhost:3003
 #### Screenshots
 
 The screenshots provided show step by step how the expense analyser works. First it will require you to upload your bank statement. On attaching the same, it categorise your expenses based on whether they are Essential, a monthly subscription that seems to be draining your account, or a convenience that can be avoided.
+
+The screenshots can be accessed: https://drive.google.com/drive/folders/15XT0i2jsQtMA5uiZFbn1osvGrxZEkBp_?usp=drive_link
+
 
 #### Diagrams
 System Architecture
