@@ -65,310 +65,165 @@ Feature 5: High-Impact Categorization Groups all wasteful spending into four act
 
 ---
 
-## Implementation
+Implementation
+For Software:
+Installation
+Navigate to the project folder:
 
-### For Software:
+Bash
+cd trial1-perp
+Install core dependencies:
 
-#### Installation
-```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
-```
+Bash
+npm install express cors multer @google/generative-ai
+Configure API Key:
+Open server3.js and paste your Gemini API Key:
 
-#### Run
-```bash
-[Run commands - e.g., npm start, python app.py]
-```
+JavaScript
+const genAI = new GoogleGenerativeAI("YOUR_GEMINI_API_KEY");
+Run
+Start the AI Analysis Server:
 
-### For Hardware:
+Bash
+python app.py
+Access the Application:
+Open your browser and go to: http://localhost:3003
 
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
-
----
 
 ## Project Documentation
 
 ### For Software:
 
-#### Screenshots (Add at least 3)
+#### Screenshots
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+The screenshots provided show step by step how the expense analyser works. First it will require you to upload your bank statement. On attaching the same, it categorise your expenses based on whether they are Essential, a monthly subscription that seems to be draining your account, or a convenience that can be avoided.
 
 #### Diagrams
+System Architecture
+Architecture Overview:
+The system uses a Middleware-as-a-Service pattern to bridge raw financial data with Generative AI:
 
-**System Architecture:**
+Frontend: A Vanilla JS interface for file uploads and data rendering.
 
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+Backend (Node.js/Express): Orchestrates data flow, manages Multer file parsing, and handles API communication.
 
-**Application Workflow:**
+AI Engine (Gemini 3 Flash): Processes transaction text semantically via specialized prompts to return structured JSON.
 
-![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
+External API (Python): Simulates a core banking database for fetching customer statements.
 
----
+Application Workflow
+Workflow Execution:
 
-### For Hardware:
+Input: User uploads a .txt statement or selects an API-linked customer.
 
-#### Schematic & Circuit
+Prompting: The server formats transactions into a "Vampire Hunter" prompt for the LLM.
 
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
+Analysis: Gemini-3-Flash identifies waste based on context (e.g., distinguishing "Rent" from "Netflix").
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+Parsing: The AI returns structured JSON containing categories and reasoning.
 
-#### Build Photos
-
-![Team](Add photo of your team here)
-
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
----
+Output: The UI highlights wasteful rows and calculates a 6-month savings projection.
 
 ## Additional Documentation
 
-### For Web Projects with Backend:
 
 #### API Documentation
 
-**Base URL:** `https://api.yourproject.com`
+**Base URL:** `http://localhost:3003`
 
 ##### Endpoints
+GET /api/customers
 
-**GET /api/endpoint**
-- **Description:** [What it does]
-- **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
-- **Response:**
-```json
+Description: Fetches a list of available customers from the simulated banking backend.
+
+Parameters: None
+
+Response:
+
+JSON
+[
+  { "id": "C001", "name": "John Doe" }
+]
+POST /analyze
+
+Description: Uploads a raw text statement for AI-powered waste analysis.
+
+Parameters: - statement (file): The .txt bank statement file (Multipart/form-data).
+
+Response:
+
+JSON
 {
-  "status": "success",
-  "data": {}
+  "summary": { "totalChecked": 10, "wastefulCount": 3 },
+  "items": [{ "isWasteful": true, "category": "Subscription", "reasoning": "..." }]
 }
-```
+POST /analyze-api
 
-**POST /api/endpoint**
-- **Description:** [What it does]
-- **Request Body:**
-```json
+Description: Fetches a specific customer's statement from the Python API and runs analysis.
+
+Request Body:
+
+JSON
 {
-  "field1": "value1",
-  "field2": "value2"
+  "customer": "C001",
+  "month": "January"
 }
-```
-- **Response:**
-```json
+Response:
+
+JSON
 {
-  "status": "success",
-  "message": "Operation completed"
+  "summary": { "totalChecked": 15, "wastefulCount": 5 },
+  "items": [...]
 }
-```
-
-[Add more endpoints as needed...]
-
----
-
-### For Mobile Apps:
-
-#### App Flow Diagram
-
-![App Flow](docs/app-flow.png)
-*Explain the user flow through your application*
-
-#### Installation Guide
-
-**For Android (APK):**
-1. Download the APK from [Release Link]
-2. Enable "Install from Unknown Sources" in your device settings:
-   - Go to Settings > Security
-   - Enable "Unknown Sources"
-3. Open the downloaded APK file
-4. Follow the installation prompts
-5. Open the app and enjoy!
-
-**For iOS (IPA) - TestFlight:**
-1. Download TestFlight from the App Store
-2. Open this TestFlight link: [Your TestFlight Link]
-3. Click "Install" or "Accept"
-4. Wait for the app to install
-5. Open the app from your home screen
-
-**Building from Source:**
-```bash
-# For Android
-flutter build apk
-# or
-./gradlew assembleDebug
-
-# For iOS
-flutter build ios
-# or
-xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
-```
-
----
-
-### For Hardware Projects:
-
-#### Bill of Materials (BOM)
-
-| Component | Quantity | Specifications | Price | Link/Source |
-|-----------|----------|----------------|-------|-------------|
-| Arduino Uno | 1 | ATmega328P, 16MHz | ₹450 | [Link] |
-| LED | 5 | Red, 5mm, 20mA | ₹5 each | [Link] |
-| Resistor | 5 | 220Ω, 1/4W | ₹1 each | [Link] |
-| Breadboard | 1 | 830 points | ₹100 | [Link] |
-| Jumper Wires | 20 | Male-to-Male | ₹50 | [Link] |
-| [Add more...] | | | | |
-
-**Total Estimated Cost:** ₹[Amount]
-
-#### Assembly Instructions
-
-**Step 1: Prepare Components**
-1. Gather all components listed in the BOM
-2. Check component specifications
-3. Prepare your workspace
-![Step 1](images/assembly-step1.jpg)
-*Caption: All components laid out*
-
-**Step 2: Build the Power Supply**
-1. Connect the power rails on the breadboard
-2. Connect Arduino 5V to breadboard positive rail
-3. Connect Arduino GND to breadboard negative rail
-![Step 2](images/assembly-step2.jpg)
-*Caption: Power connections completed*
-
-**Step 3: Add Components**
-1. Place LEDs on breadboard
-2. Connect resistors in series with LEDs
-3. Connect LED cathodes to GND
-4. Connect LED anodes to Arduino digital pins (2-6)
-![Step 3](images/assembly-step3.jpg)
-*Caption: LED circuit assembled*
-
-**Step 4: [Continue for all steps...]**
-
-**Final Assembly:**
-![Final Build](images/final-build.jpg)
-*Caption: Completed project ready for testing*
-
----
-
-### For Scripts/CLI Tools:
-
-#### Command Reference
-
-**Basic Usage:**
-```bash
-python script.py [options] [arguments]
-```
-
-**Available Commands:**
-- `command1 [args]` - Description of what command1 does
-- `command2 [args]` - Description of what command2 does
-- `command3 [args]` - Description of what command3 does
-
-**Options:**
-- `-h, --help` - Show help message and exit
-- `-v, --verbose` - Enable verbose output
-- `-o, --output FILE` - Specify output file path
-- `-c, --config FILE` - Specify configuration file
-- `--version` - Show version information
-
-**Examples:**
-
-```bash
-# Example 1: Basic usage
-python script.py input.txt
-
-# Example 2: With verbose output
-python script.py -v input.txt
-
-# Example 3: Specify output file
-python script.py -o output.txt input.txt
-
-# Example 4: Using configuration
-python script.py -c config.json --verbose input.txt
-```
 
 #### Demo Output
+Example 1: Manual File Upload
 
-**Example 1: Basic Processing**
+Input (statement.txt):
 
-**Input:**
-```
-This is a sample input file
-with multiple lines of text
-for demonstration purposes
-```
+Plaintext
+20/02/2026 | Zomato Order | 450.00 | Debit
+21/02/2026 | Netflix India | 199.00 | Debit
+22/02/2026 | Electricity Bill | 2500.00 | Debit
+Command:
 
-**Command:**
-```bash
-python script.py sample.txt
-```
+Bash
+# Upload via Frontend UI or:
+curl -X POST -F "statement=@statement.txt" http://localhost:3003/analyze
+Output:
 
-**Output:**
-```
-Processing: sample.txt
-Lines processed: 3
-Characters counted: 86
-Status: Success
-Output saved to: output.txt
-```
-
-**Example 2: Advanced Usage**
-
-**Input:**
-```json
+JSON
 {
-  "name": "test",
-  "value": 123
+  "summary": { "totalChecked": 3, "wastefulCount": 2 },
+  "items": [
+    { "originalIndex": 1, "isWasteful": true, "category": "Convenience", "reasoning": "Food delivery is a non-essential luxury expense." },
+    { "originalIndex": 2, "isWasteful": true, "category": "Subscription", "reasoning": "Recurring digital entertainment drain." }
+  ]
 }
-```
+Example 2: API-Linked Analysis
 
-**Command:**
-```bash
-python script.py -v --format json data.json
-```
+Input (Request Body):
 
-**Output:**
-```
-[VERBOSE] Loading configuration...
-[VERBOSE] Parsing JSON input...
-[VERBOSE] Processing data...
+JSON
 {
-  "status": "success",
-  "processed": true,
-  "result": {
-    "name": "test",
-    "value": 123,
-    "timestamp": "2024-02-07T10:30:00"
-  }
+  "customer": "C001",
+  "month": "February"
 }
-[VERBOSE] Operation completed in 0.23s
-```
+Command:
 
----
+Bash
+curl -X POST -H "Content-Type: application/json" -d '{"customer":"C001","month":"February"}' http://localhost:3003/analyze-api
+Output:
+
+JSON
+{
+  "summary": { "totalChecked": 15, "wastefulCount": 4 },
+  "subscriptions": [
+    { "name": "Netflix", "amount": 199 },
+    { "name": "Spotify", "amount": 119 }
+  ],
+  "projected_6mo_savings": 1908
+}
 
 ## Project Demo
 
@@ -382,39 +237,13 @@ python script.py -v --format json data.json
 
 ---
 
-## AI Tools Used (Optional - For Transparency Bonus)
 
-If you used AI tools during development, document them here for transparency:
-
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
-
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
-
-**Key Prompts Used:**
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
-
-**Percentage of AI-generated code:** [Approximately X%]
-
-**Human Contributions:**
-- Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
-- UI/UX design decisions
-
-*Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
-
----
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- Parvathi S:  Frontend development, API integration
+- Neha Susan Koshy: Backend Development, AI specialist
+
 
 ---
 
