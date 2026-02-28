@@ -100,6 +100,8 @@ The screenshots provided show step by step how the expense analyser works. First
 
 The screenshots can be accessed: https://drive.google.com/drive/folders/15XT0i2jsQtMA5uiZFbn1osvGrxZEkBp_?usp=drive_link
 
+Video link: https://drive.google.com/file/d/1lnwhbZ49FIaV64C-RVUOQbZRQP0i7U6y/view?usp=drive_link
+
 
 #### Diagrams
 System Architecture
