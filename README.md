@@ -13,7 +13,7 @@
 - Member 2: Neha Susan Koshy - College of Engineering Trivandrum
 
 ### Hosted Project Link
-[mention your project hosted link here]
+https://tink-her-hack-tempp.onrender.com
 
 ### Project Description
 An AI-Powered Waste Expense Analyser that identifies "financial leaks" in bank statements. Using the Gemini 3 Flash LLM, it semantically audits transactions to find forgotten subscriptions, impulsive dining, and hidden fees, transforming raw data into a prioritized savings roadmap.
