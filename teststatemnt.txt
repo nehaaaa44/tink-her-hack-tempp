@@ -1,0 +1,10 @@
+Opening Balance: 50000.00
+01-Jan-26,Salary Credit ABC Corp,75000.00
+02-Jan-26,Netflix Standard Plan,149.00
+Statement Period: Jan 2026
+04-Jan-26,Zomato Gold Order AB123,450.00
+05-Jan-26,Electricity Bill BESCOM,3200.00
+Closing Balance: 52300.00
+07-Jan-26,Amazon Prime Membership,179.00
+08-Jan-26,Uber Premier to Office,180.00
+10-Jan-26,Myntra Fashion Sale MN456,850.00

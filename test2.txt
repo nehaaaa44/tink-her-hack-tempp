@@ -1,0 +1,11 @@
+01/10/2023 | Rent Payment - Monthly | 1200.00 | Debit
+02/10/2023 | Netflix.com Subscription | 15.99 | Debit
+03/10/2023 | Local Grocery Mart | 45.30 | Debit
+05/10/2023 | Uber *Eats Starbucks | 22.50 | Debit
+07/10/2023 | Electric Utility Bill | 85.00 | Debit
+08/10/2023 | Amazon.com* Fashion Sale | 110.00 | Debit
+10/10/2023 | Overdraft Penalty Fee | 35.00 | Debit
+12/10/2023 | Petrol Station Fuel | 50.00 | Debit
+15/10/2023 | Zomato Order - Late Night | 18.20 | Debit
+18/10/2023 | Monthly Gym Membership | 40.00 | Debit
+20/10/2023 | Zara Retail Store | 75.00 | Debit

@@ -3,13 +3,14 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+require('dotenv').config();
 
 const app = express();
 const PORT = 3003;
 
 // --- GEMINI CONFIGURATION ---
 // Replace 'YOUR_GEMINI_API_KEY' with your actual key from Google AI Studio
-const genAI = new GoogleGenerativeAI("AIzaSyCvP8IyRV1RytbuwtGLVSJFA2pJggdikOM");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API);
 const model = genAI.getGenerativeModel({ 
     model: "gemini-flash-latest", // This alias always points to the newest Flash model
     generationConfig: { responseMimeType: "application/json" } 
